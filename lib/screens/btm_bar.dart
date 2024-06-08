@@ -45,9 +45,13 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(
-          _pages[_selectedIndex]['title'],
-          style: TextStyle(color: appBarTextColor),
+        title: Padding(
+          padding: const EdgeInsets.only(top: 25),
+          child: Center(
+            child: Image.asset(
+              'assets/navbar_logo.png',
+            ),
+          ),
         ),
         backgroundColor: appBarColor,
         iconTheme: IconThemeData(color: appBarTextColor),
