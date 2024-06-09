@@ -49,7 +49,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           padding: const EdgeInsets.only(top: 25),
           child: Center(
             child: Image.asset(
-              'assets/navbar_logo.png',
+              'images/navbar_logo.png',
             ),
           ),
         ),

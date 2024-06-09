@@ -29,7 +29,9 @@ class _UserScreenState extends State<UserScreen> {
           children: [
             const SizedBox(height: 20),
             SwitchListTile(
-              title: const TextWidget(),
+              title: const TextWidget(
+                  darkThemeText: 'Karanlık Mod',
+                  lightThemeText: 'Aydınlık Mod'),
               secondary: Icon(
                 themeState.getDarkTheme
                     ? Icons.dark_mode_outlined
@@ -108,7 +110,17 @@ class _UserScreenState extends State<UserScreen> {
             _listTile(
               title: 'Çıkış Yap',
               icon: IconlyLight.logout,
-              onPressed: () {},
+              onPressed: () {
+                // return AwesomeDialog(
+                //   context: context,
+                //   animType: AnimType.rightSlide,
+                //   dialogType: DialogType.info,
+                //   body: const Center(
+                //     child: Text('Çıkış yapmak istediğinizden emin misiz ?'),
+                //   ),
+                //   btnOkOnPress: () {},
+                // ).show();
+              },
             ),
           ],
         ),
