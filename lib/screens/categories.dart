@@ -23,22 +23,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     {
       'catText': 'Kırmızı Et',
       'color': Colors.red,
-      'imgPath': 'images/red_meat.png',
+      'imgPath': 'images/meat_red.png',
     },
     {
       'catText': 'Beyaz Et',
       'color': Colors.yellow,
-      'imgPath': 'images/white_meat.png',
+      'imgPath': 'images/chickeen.png',
     },
     {
       'catText': 'Süt ve Süt Ürünleri',
       'color': Colors.blue,
       'imgPath': 'images/milk.png',
-    },
-    {
-      'catText': 'Kuruyemiş',
-      'color': Colors.purple,
-      'imgPath': 'images/drinks.png',
     },
   ];
   @override
@@ -52,21 +47,17 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       ),
       child: GridView.count(
         crossAxisCount: 2,
-        childAspectRatio: 240 / 250,
+        childAspectRatio: 240 / 230,
         crossAxisSpacing: 10,
         mainAxisSpacing: 10,
-        children: [
-          ...List.generate(
-            6,
-            (index) {
-              return CategoriesWidget(
-                catText: catInfo[index]['catText'],
-                color: catInfo[index]['color'],
-                imgPath: catInfo[index]['imgPath'],
-              );
-            },
-          )
-        ],
+        children: List.generate(
+          catInfo.length,
+          (index) => CategoriesWidget(
+            color: catInfo[index]['color'],
+            catText: catInfo[index]['catText'],
+            imgPath: catInfo[index]['imgPath'],
+          ),
+        ),
       ),
     ));
   }
