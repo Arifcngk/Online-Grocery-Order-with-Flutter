@@ -34,8 +34,8 @@ class _OnSaleWidgetState extends State<OnSaleWidget> {
         child: InkWell(
           onTap: () {},
           child: Container(
+            height: size.height * 0.3,
             width: size.width * 0.4,
-            height: size.height * 0.25,
             decoration: BoxDecoration(
               color: theme ? Colors.black : Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -48,95 +48,100 @@ class _OnSaleWidgetState extends State<OnSaleWidget> {
                 ),
               ],
             ),
-            child: Stack(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: Stack(
+                Expanded(
+                  flex: 2,
+                  child: ClipRRect(
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(10)),
+                    child: FancyShimmerImage(
+                      imageUrl: widget.imagePath,
+                      boxFit: BoxFit.cover,
+                      width: double.infinity,
+                    ),
+                  ),
+                ),
+                Divider(
+                  color: theme ? Colors.white : Colors.orangeAccent,
+                  height: 1,
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Container(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          FancyShimmerImage(
-                            imageUrl: widget.imagePath,
-                            boxFit: BoxFit.cover,
-                            width: double.infinity,
-                            height: double.infinity,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  widget.productName,
+                                  style: TextStyle(
+                                    color: theme ? Colors.white : Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                              Row(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      // Ürün detay sayfasına gitme işlemi
+                                    },
+                                    child: Icon(
+                                      IconlyLight.bag2,
+                                      color:
+                                          theme ? Colors.white : Colors.black,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  GestureDetector(
+                                    onTap: () {
+                                      // Ürün detay sayfasına gitme işlemi
+                                    },
+                                    child: Icon(
+                                      IconlyLight.heart,
+                                      color:
+                                          theme ? Colors.white : Colors.black,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                          Positioned(
-                            right: 8,
-                            top: 8,
-                            child: Column(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    // Ürün detay sayfasına gitme işlemi
-                                  },
-                                  child: Icon(
-                                    IconlyLight.bag2,
-                                    color: theme ? Colors.white : Colors.black,
-                                  ),
+                          const SizedBox(height: 5),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                widget.oldPrice,
+                                style: TextStyle(
+                                  color: theme ? Colors.white : Colors.black,
+                                  fontSize: 15,
+                                  decoration: TextDecoration.lineThrough,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                const SizedBox(),
-                                GestureDetector(
-                                  onTap: () {
-                                    // Ürün detay sayfasına gitme işlemi
-                                  },
-                                  child: Icon(
-                                    IconlyLight.heart,
-                                    color: theme ? Colors.white : Colors.black,
-                                  ),
+                              ),
+                              Text(
+                                widget.newPrice,
+                                style: TextStyle(
+                                  color: theme ? Colors.white : Colors.black,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
                     ),
-                    Divider(
-                        color: theme ? Colors.white : Colors.orangeAccent,
-                        height: 1),
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.productName,
-                              style: TextStyle(
-                                color: theme ? Colors.white : Colors.black,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  widget.oldPrice,
-                                  style: TextStyle(
-                                    color: theme ? Colors.white : Colors.black,
-                                    fontSize: 15,
-                                    decoration: TextDecoration.lineThrough,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Text(
-                                  widget.newPrice,
-                                  style: TextStyle(
-                                    color: theme ? Colors.white : Colors.black,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
               ],
             ),
