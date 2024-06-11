@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:manav_sepeti/inner_screens/on_sale_screen.dart';
+import 'package:manav_sepeti/services/global_method.dart';
 import 'package:manav_sepeti/services/utils.dart';
 import 'package:manav_sepeti/widgets/card_items.dart';
 import 'package:manav_sepeti/widgets/on_sale_widget.dart';
@@ -55,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final Utils utils = Utils(context);
     final themeState = utils.getTheme;
     Size size = utils.getScreenSize;
+    GlobalMethods globalMethods = GlobalMethods();
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -86,7 +89,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        globalMethods.navigateTo(
+                            ctx: context, routeName: OnSaleScreen.routeName);
+                      },
                       child: Text('İndirimli Tüm Ürünler',
                           style: TextStyle(
                               color:
@@ -173,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   imagePath: 'images/onsale1.jpg',
                 );
               }),
-            )
+            ),
           ],
         ),
       ),
