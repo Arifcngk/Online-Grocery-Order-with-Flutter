@@ -57,6 +57,7 @@ class _MyAppState extends State<MyApp> {
           home: const BottomBarScreen(),
           routes: {
             OnSaleScreen.routeName: (ctx) => const OnSaleScreen(),
+            HomeScreen.routeName: (ctx) => const HomeScreen(),
           },
         );
       }),

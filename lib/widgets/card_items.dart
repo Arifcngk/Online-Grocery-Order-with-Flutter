@@ -57,7 +57,7 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(10)),
                     child: Image.asset(
-                       widget.imagePath,
+                      widget.imagePath,
                       fit: BoxFit.cover,
                       width: double.infinity,
                     ),

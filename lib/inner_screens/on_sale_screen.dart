@@ -18,7 +18,7 @@ class _OnSaleScreenState extends State<OnSaleScreen> {
     final Utils utils = Utils(context);
     final themeState = utils.getTheme;
     Size size = utils.getScreenSize;
-
+    bool _isEmpty = true;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -29,6 +29,16 @@ class _OnSaleScreenState extends State<OnSaleScreen> {
             child: Image.asset(
               'images/navbar_logo.png',
             ),
+          ),
+        ),
+        leading: InkWell(
+          borderRadius: BorderRadius.circular(30),
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
           ),
         ),
         backgroundColor: Colors.white,

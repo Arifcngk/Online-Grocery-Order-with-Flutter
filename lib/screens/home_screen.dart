@@ -9,6 +9,7 @@ import 'package:card_swiper/card_swiper.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+  static const routeName = '/HomeScreen';
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -173,7 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
               childAspectRatio: size.width / (size.height / 2),
               children: List.generate(4, (index) {
                 return const ProductCardWidget(
-                  productName: 'Elma',
+                  productName: 'Şeftali',
                   status: 'Yeni Ürün',
                   newPrice: '7,99 TL',
                   imagePath: 'images/onsale1.jpg',
