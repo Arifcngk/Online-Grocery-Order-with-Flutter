@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:manav_sepeti/services/utils.dart';
-import 'package:manav_sepeti/widgets/feed_items.dart';
+import 'package:manav_sepeti/widgets/card_items.dart';
 import 'package:manav_sepeti/widgets/on_sale_widget.dart';
 import 'package:card_swiper/card_swiper.dart';
 
@@ -17,6 +17,38 @@ class _HomeScreenState extends State<HomeScreen> {
     'images/slider1.jpg',
     'images/slider2.jpg',
     'images/slider3.jpg',
+  ];
+  final List<Map<String, dynamic>> saleProduct = [
+    {
+      'productName': 'Şeftali',
+      'oldPrice': '10.00 TL',
+      'newPrice': '7,99 TL',
+      'imagePath': 'images/onsale1.jpg',
+    },
+    {
+      'productName': 'Elma',
+      'oldPrice': '13.00 TL',
+      'newPrice': '9,99 TL',
+      'imagePath': 'images/kırmızı_elma.jpg',
+    },
+    {
+      'productName': 'Yesil Elma',
+      'oldPrice': '18.00 TL',
+      'newPrice': '15,99 TL',
+      'imagePath': 'images/yesil_elma.jpg',
+    },
+    {
+      'productName': 'Yesil Elma',
+      'oldPrice': '18.00 TL',
+      'newPrice': '15,99 TL',
+      'imagePath': 'images/yesil_elma.jpg',
+    },
+    {
+      'productName': 'Yesil Elma',
+      'oldPrice': '18.00 TL',
+      'newPrice': '15,99 TL',
+      'imagePath': 'images/yesil_elma.jpg',
+    },
   ];
   @override
   Widget build(BuildContext context) {
@@ -93,14 +125,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SizedBox(
                     height: size.height * 0.25,
                     child: ListView.builder(
-                      itemCount: 10,
+                      itemCount: 5,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return const OnSaleWidget(
-                          productName: 'Şeftali',
-                          oldPrice: '10.00 TL',
-                          newPrice: '7,99 TL',
-                          imagePath: 'images/onsale1.jpg',
+                        return OnSaleWidget(
+                          productName: saleProduct[index]['productName'],
+                          oldPrice: saleProduct[index]['oldPrice'],
+                          newPrice: saleProduct[index]['newPrice'],
+                          imagePath: saleProduct[index]['imagePath'],
                         );
                       },
                     ),
@@ -115,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Manav Reyonu',
+                    'Fırsatları Keşfet',
                     style: TextStyle(
                         color: themeState ? Colors.white : Colors.black),
                   ),
@@ -135,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
               childAspectRatio: size.width / (size.height / 2),
               children: List.generate(4, (index) {
                 return const ProductCardWidget(
-                  productName: 'Şeftali',
+                  productName: 'Elma',
                   status: 'Yeni Ürün',
                   newPrice: '7,99 TL',
                   imagePath: 'images/onsale1.jpg',

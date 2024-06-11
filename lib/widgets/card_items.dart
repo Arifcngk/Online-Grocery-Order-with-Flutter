@@ -56,9 +56,9 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
                   child: ClipRRect(
                     borderRadius:
                         BorderRadius.vertical(top: Radius.circular(10)),
-                    child: FancyShimmerImage(
-                      imageUrl: widget.imagePath,
-                      boxFit: BoxFit.cover,
+                    child: Image.asset(
+                       widget.imagePath,
+                      fit: BoxFit.cover,
                       width: double.infinity,
                     ),
                   ),
