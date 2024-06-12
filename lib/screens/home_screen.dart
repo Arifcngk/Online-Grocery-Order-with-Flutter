@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:manav_sepeti/inner_screens/on_sale_screen.dart';
+import 'package:manav_sepeti/inner_screens/product_screen.dart';
 import 'package:manav_sepeti/services/global_method.dart';
 import 'package:manav_sepeti/services/utils.dart';
 import 'package:manav_sepeti/widgets/card_items.dart';
@@ -158,11 +159,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: TextStyle(
                         color: themeState ? Colors.white : Colors.black),
                   ),
-                  Text(
-                    'Tüm Ürünler',
-                    style: TextStyle(
-                        color: themeState ? Colors.orangeAccent : Colors.orange,
-                        fontWeight: FontWeight.bold),
+                  GestureDetector(
+                    onTap: () {
+                      globalMethods.navigateTo(
+                          ctx: context, routeName: ProductScreen.routeName);
+                    },
+                    child: Text(
+                      'Tüm Ürünler',
+                      style: TextStyle(
+                          color:
+                              themeState ? Colors.orangeAccent : Colors.orange,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ],
               ),

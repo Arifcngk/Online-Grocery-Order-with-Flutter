@@ -1,6 +1,7 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:manav_sepeti/inner_screens/product_details.dart';
 import 'package:manav_sepeti/services/utils.dart';
 
 class ProductCardWidget extends StatefulWidget {
@@ -32,7 +33,10 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
       padding: const EdgeInsets.all(8.0),
       child: Material(
         child: InkWell(
-          onTap: () {},
+          onTap: () {
+            //Ürün Detay sayfasına gitme işlemi
+            Navigator.pushNamed(context, ProductDetailScreen.routeName);
+          },
           child: Container(
             height: size.height * 0.3,
             width: size.width * 0.4,

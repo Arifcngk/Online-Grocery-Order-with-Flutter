@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:manav_sepeti/provider/dark_theme_provider.dart';
-import 'package:manav_sepeti/screens/card.dart';
+import 'package:manav_sepeti/screens/cart/cart_screen.dart';
 import 'package:manav_sepeti/screens/categories.dart';
 import 'package:manav_sepeti/screens/home_screen.dart';
 import 'package:manav_sepeti/screens/user.dart';
@@ -18,7 +18,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Map<String, dynamic>> _pages = [
     {'page': const HomeScreen(), 'title': 'Anasayfa'},
     {'page': CategoriesScreen(), 'title': 'Kategori'},
-    {'page': const CardScreen(), 'title': 'Sepet'},
+    {'page': const CartScreen(), 'title': 'Sepet'},
     {'page': const UserScreen(), 'title': 'Hesabım'}
   ];
 
