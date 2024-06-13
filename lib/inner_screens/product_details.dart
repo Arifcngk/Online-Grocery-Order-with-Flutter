@@ -23,12 +23,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
     GlobalMethods globalMethods = GlobalMethods();
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
               width: double.infinity,
-              height: size.height * 0.07,
+              height: size.height * 0.02,
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -131,7 +135,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           // Sepete ekleme işlemi
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orange,
+                          backgroundColor: Colors.orange,
                           padding: const EdgeInsets.symmetric(
                               horizontal: 24.0, vertical: 12.0),
                           shape: RoundedRectangleBorder(

@@ -136,9 +136,12 @@ class _UserScreenState extends State<UserScreen> {
       required IconData icon,
       required Function onPressed}) {
     return ListTile(
-      title: Text(
-        title ?? 'Yükleniyor',
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      title: Padding(
+        padding: const EdgeInsets.only(top: 5.0),
+        child: Text(
+          title ?? 'Yükleniyor',
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
       ),
       subtitle: Text(
         subtitle ?? '',

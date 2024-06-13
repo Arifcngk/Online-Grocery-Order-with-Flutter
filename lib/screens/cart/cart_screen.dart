@@ -142,7 +142,7 @@ class _CartScreenState extends State<CartScreen> {
               icon: const Icon(IconlyBold.delete),
               label: const Text('Sepeti Sil'),
               style: ElevatedButton.styleFrom(
-                primary: Colors.red,
+                backgroundColor: Colors.red,
                 padding: const EdgeInsets.symmetric(
                     horizontal: 16.0, vertical: 12.0),
                 shape: RoundedRectangleBorder(

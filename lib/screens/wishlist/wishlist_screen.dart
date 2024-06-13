@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:manav_sepeti/screens/cart/cart_widget.dart';
+import 'package:manav_sepeti/screens/wishlist/wishlist_widget.dart';
 import 'package:manav_sepeti/services/global_method.dart';
 import 'package:manav_sepeti/services/utils.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class WishlistScreen extends StatelessWidget {
   static const routeName = '/wishlist_screen';
@@ -16,22 +17,21 @@ class WishlistScreen extends StatelessWidget {
     GlobalMethods globalMethods = GlobalMethods();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.white,
         elevation: 0,
         centerTitle: true,
-        title: Padding(
-          padding: const EdgeInsets.only(top: 25),
-          child: Center(
-            child: Image.asset(
-              'images/navbar_logo.png',
-            ),
-          ),
+        title: const Text(
+          'Favorilerim',
+          style: TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
-      body: ListView.builder(
-        itemCount: 4,
+      body: MasonryGridView.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 4,
+        crossAxisSpacing: 4,
+        itemCount: 6, // Bu değeri istediğiniz öğe sayısına göre ayarlayın
         itemBuilder: (context, index) {
-          return CartWidget();
+          return const WishlistWidget();
         },
       ),
     );
