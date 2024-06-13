@@ -92,7 +92,9 @@ class _UserScreenState extends State<UserScreen> {
             _listTile(
               title: 'Favorilerim',
               icon: IconlyLight.heart,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/wishlist_screen');
+              },
             ),
             const SizedBox(height: 10),
             _listTile(

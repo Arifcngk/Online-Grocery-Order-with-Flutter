@@ -7,6 +7,7 @@ import 'package:manav_sepeti/inner_screens/product_screen.dart';
 import 'package:manav_sepeti/provider/dark_theme_provider.dart';
 import 'package:manav_sepeti/screens/btm_bar.dart';
 import 'package:manav_sepeti/screens/home_screen.dart';
+import 'package:manav_sepeti/screens/wishlist/wishlist_screen.dart';
 import 'package:manav_sepeti/services/dark_theme_pref.dart';
 import 'package:provider/provider.dart';
 
@@ -62,6 +63,7 @@ class _MyAppState extends State<MyApp> {
             HomeScreen.routeName: (ctx) => const HomeScreen(),
             ProductScreen.routeName: (ctx) => const ProductScreen(),
             ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
+            WishlistScreen.routeName: (ctx) => const WishlistScreen(),
           },
         );
       }),
