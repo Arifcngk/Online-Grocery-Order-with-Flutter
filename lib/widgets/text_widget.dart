@@ -18,7 +18,10 @@ class TextWidget extends StatelessWidget {
 
     return Text(
       themeState.getDarkTheme ? darkThemeText : lightThemeText,
-      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          color: themeState.getDarkTheme ? Colors.white : Colors.black),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:manav_sepeti/provider/dark_theme_provider.dart';
+import 'package:manav_sepeti/services/global_method.dart';
 import 'package:manav_sepeti/widgets/text_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,7 @@ class _UserScreenState extends State<UserScreen> {
       super.dispose();
     }
 
+    GlobalMethods globalMethods = GlobalMethods();
     return Scaffold(
       body: Center(
         child: Column(
@@ -113,15 +115,13 @@ class _UserScreenState extends State<UserScreen> {
               title: 'Çıkış Yap',
               icon: IconlyLight.logout,
               onPressed: () {
-                // return AwesomeDialog(
-                //   context: context,
-                //   animType: AnimType.rightSlide,
-                //   dialogType: DialogType.info,
-                //   body: const Center(
-                //     child: Text('Çıkış yapmak istediğinizden emin misiz ?'),
-                //   ),
-                //   btnOkOnPress: () {},
-                // ).show();
+                globalMethods.showCustomAlertDialog(
+                    ctx: context,
+                    title: 'Çıkış Yap',
+                    content: 'Çıkış yapmak istediğinizden emin misiniz ?',
+                    buttonText: 'Evet',
+                    icon: IconlyBold.logout,
+                    iconColor: Colors.orange);
               },
             ),
           ],
@@ -135,12 +135,17 @@ class _UserScreenState extends State<UserScreen> {
       String? subtitle,
       required IconData icon,
       required Function onPressed}) {
+    final themeState = Provider.of<DarkThemeProvider>(context);
+
     return ListTile(
       title: Padding(
         padding: const EdgeInsets.only(top: 5.0),
         child: Text(
           title ?? 'Yükleniyor',
-          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: themeState.getDarkTheme ? Colors.white : Colors.black),
         ),
       ),
       subtitle: Text(

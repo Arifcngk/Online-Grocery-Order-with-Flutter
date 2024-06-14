@@ -65,7 +65,7 @@ class _CartScreenState extends State<CartScreen> {
                 children: <Widget>[
                   Container(
                     width: 30,
-                    height: 5,
+                    height: 1,
                     decoration: BoxDecoration(
                       color: Colors.grey[300],
                       borderRadius:
@@ -100,10 +100,6 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: const Text(
-                      'Ödeme Yap',
-                      style: TextStyle(color: Colors.white),
-                    ),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.orange,
                       padding: const EdgeInsets.symmetric(
@@ -111,6 +107,10 @@ class _CartScreenState extends State<CartScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12.0),
                       ),
+                    ),
+                    child: const Text(
+                      'Ödeme Yap',
+                      style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ],
@@ -138,9 +138,18 @@ class _CartScreenState extends State<CartScreen> {
             child: ElevatedButton.icon(
               onPressed: () {
                 // Sepeti silmek için gerekli fonksiyonu çağır
+                GlobalMethods().showCustomAlertDialog(
+                    ctx: context,
+                    title: 'Sepeti Sil',
+                    content: 'Sepeti silmek istediğinden emin misin ?',
+                    buttonText: 'Evet',
+                    icon: IconlyBold.delete);
               },
-              icon: const Icon(IconlyBold.delete),
-              label: const Text('Sepeti Sil'),
+              icon: const Icon(IconlyBold.delete, color: Colors.white),
+              label: const Text(
+                'Sepeti Sil',
+                style: TextStyle(color: Colors.white),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
                 padding: const EdgeInsets.symmetric(

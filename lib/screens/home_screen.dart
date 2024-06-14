@@ -42,16 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
       'imagePath': 'images/yesil_elma.jpg',
     },
     {
-      'productName': 'Yesil Elma',
+      'productName': 'Domates',
       'oldPrice': '18.00 TL',
       'newPrice': '15,99 TL',
-      'imagePath': 'images/yesil_elma.jpg',
+      'imagePath': 'images/domates.jpg',
     },
     {
-      'productName': 'Yesil Elma',
+      'productName': 'Muz',
       'oldPrice': '18.00 TL',
       'newPrice': '15,99 TL',
-      'imagePath': 'images/yesil_elma.jpg',
+      'imagePath': 'images/muz.jpg',
     },
   ];
   @override
@@ -182,10 +182,10 @@ class _HomeScreenState extends State<HomeScreen> {
               childAspectRatio: size.width / (size.height / 2),
               children: List.generate(4, (index) {
                 return const ProductCardWidget(
-                  productName: 'Şeftali',
+                  productName: 'Yeşil Elma',
                   status: 'Yeni Ürün',
                   newPrice: '7,99 TL',
-                  imagePath: 'images/onsale1.jpg',
+                  imagePath: 'images/yesil_elma.jpg',
                 );
               }),
             ),
