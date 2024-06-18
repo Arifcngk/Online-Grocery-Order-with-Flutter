@@ -88,7 +88,9 @@ class _UserScreenState extends State<UserScreen> {
             _listTile(
               title: 'Siparişlerim',
               icon: IconlyLight.bag,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/orders-screen');
+              },
             ),
             const SizedBox(height: 10),
             _listTile(
