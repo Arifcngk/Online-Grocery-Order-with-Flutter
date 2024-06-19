@@ -1,45 +1,48 @@
-import 'dart:math';
-
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:card_swiper/card_swiper.dart';
+import 'package:manav_sepeti/auth/forget_pass.dart';
+import 'package:manav_sepeti/auth/register.dart';
 import 'package:manav_sepeti/const/consts.dart';
-import 'package:manav_sepeti/widgets/video_player_widget.dart';
+import 'package:manav_sepeti/widgets/auth_button.dart';
+import 'package:social_login_buttons/social_login_buttons.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = '/login';
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _passFocusNode = FocusNode();
+  final _formKey = GlobalKey<FormState>();
+  bool _obscuretext = true;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    _passFocusNode.dispose();
+    super.dispose();
+  }
+
+  void _submitFormOnLogin() {
+    final isValid = _formKey.currentState!.validate();
+    FocusScope.of(context).unfocus();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final _emailController = TextEditingController();
-    final _passwordController = TextEditingController();
-    final _passFocusNode = FocusNode();
-    final _formKey = GlobalKey<FormState>();
-    final _obscuretext = true;
-
-    @override
-    void dispose() {
-      _emailController.dispose();
-      _passwordController.dispose();
-      _passFocusNode.dispose();
-      super.dispose();
-    }
-
-    void _submitFormOnLiogin() {
-      final isValid = _formKey.currentState!.validate();
-      FocusScope.of(context).unfocus();
-      if (!isValid) {
-        return;
-      }
-      _formKey.currentState!.save();
-    }
-
     return Scaffold(
       body: Stack(
         children: [
           Swiper(
+            autoplay: true,
             duration: 500,
             autoplayDelay: 6000,
             itemBuilder: (context, index) => Image.asset(
@@ -61,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const SizedBox(height: 120),
                   const Text(
-                    "Hoşgelidiniz",
+                    "Hoşgeldiniz",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
@@ -108,18 +111,15 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        // Password
                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: TextFormField(
-                            // focusNode: _passFocusNode,
+                            focusNode: _passFocusNode,
                             controller: _passwordController,
                             obscureText: _obscuretext,
-                            textInputAction: TextInputAction.next,
+                            textInputAction: TextInputAction.done,
                             keyboardType: TextInputType.visiblePassword,
-                            onEditingComplete: () {
-                              _submitFormOnLiogin();
-                            },
+                            onEditingComplete: _submitFormOnLogin,
                             validator: (value) {
                               if (value!.isEmpty || value.length < 6) {
                                 return "Geçerli bir parola giriniz";
@@ -132,11 +132,13 @@ class _LoginScreenState extends State<LoginScreen> {
                               suffix: GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    _obscuretext != _obscuretext;
+                                    _obscuretext = !_obscuretext;
                                   });
                                 },
-                                child: const Icon(
-                                  Icons.visibility,
+                                child: Icon(
+                                  _obscuretext
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                   color: Colors.white,
                                 ),
                               ),
@@ -151,13 +153,90 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.of(context)
+                                  .pushNamed(ForgetPassword.routeName);
+                            },
+                            child: const Text(
+                              maxLines: 1,
+                              'Şifremi Unuttum',
+                              style: TextStyle(
+                                  color: Colors.orange,
+                                  decoration: TextDecoration.underline,
+                                  fontStyle: FontStyle.italic),
+                            ),
+                          ),
+                        ),
+                        AuthButton(
+                          function: () {},
+                          text: 'Giriş Yap',
+                          color: Colors.orange,
+                        ),
+                        const SizedBox(height: 20),
+                        SocialLoginButton(
+                          height: 50,
+                          text: 'Google ile Giriş Yap',
+                          buttonType: SocialLoginButtonType.google,
+                          onPressed: () {},
+                        ),
+                        const SizedBox(height: 30),
+                        const Row(
+                          children: [
+                            Expanded(
+                              child: Divider(color: Colors.white),
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              'veya',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 20),
+                            ),
+                            Expanded(child: Divider(color: Colors.white)),
+                          ],
+                        ),
+                        const SizedBox(height: 30),
+                        SocialLoginButton(
+                          height: 50,
+                          text: 'Ziyaretçi Olarak Devam Et',
+                          backgroundColor: Colors.grey[700]!,
+                          buttonType: SocialLoginButtonType.generalLogin,
+                          onPressed: () {},
+                        ),
+                        const SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Hesabınız yok mu?',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 15),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context)
+                                    .pushNamed(Register.routeName);
+                              },
+                              child: const Text(
+                                'Kayıt Ol',
+                                style: TextStyle(
+                                  color: Colors.orange,
+                                  fontSize: 15,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   )
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

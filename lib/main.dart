@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:manav_sepeti/auth/forget_pass.dart';
 import 'package:manav_sepeti/auth/login.dart';
+import 'package:manav_sepeti/auth/register.dart';
 import 'package:manav_sepeti/const/theme_data.dart';
 import 'package:manav_sepeti/inner_screens/on_sale_screen.dart';
 import 'package:manav_sepeti/inner_screens/product_details.dart';
@@ -67,6 +69,9 @@ class _MyAppState extends State<MyApp> {
             ProductDetailScreen.routeName: (ctx) => const ProductDetailScreen(),
             WishlistScreen.routeName: (ctx) => const WishlistScreen(),
             OrdersScreen.routeName: (ctx) => const OrdersScreen(),
+            LoginScreen.routeName: (ctx) => LoginScreen(),
+            Register.routeName: (ctx) => Register(),
+            ForgetPassword.routeName: (ctx) => const ForgetPassword(),
           },
         );
       }),
