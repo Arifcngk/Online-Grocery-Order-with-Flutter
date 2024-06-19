@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:manav_sepeti/auth/login.dart';
 import 'package:manav_sepeti/const/theme_data.dart';
 import 'package:manav_sepeti/inner_screens/on_sale_screen.dart';
 import 'package:manav_sepeti/inner_screens/product_details.dart';
@@ -58,7 +59,7 @@ class _MyAppState extends State<MyApp> {
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: Styles.themeData(themeProvider.getDarkTheme, context),
-          home: const BottomBarScreen(),
+          home: LoginScreen(),
           routes: {
             OnSaleScreen.routeName: (ctx) => const OnSaleScreen(),
             HomeScreen.routeName: (ctx) => const HomeScreen(),

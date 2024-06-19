@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:manav_sepeti/const/consts.dart';
 import 'package:manav_sepeti/inner_screens/on_sale_screen.dart';
 import 'package:manav_sepeti/inner_screens/product_screen.dart';
 import 'package:manav_sepeti/services/global_method.dart';
@@ -17,11 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> _slider = [
-    'images/slider1.jpg',
-    'images/slider2.jpg',
-    'images/slider3.jpg',
-  ];
   final List<Map<String, dynamic>> saleProduct = [
     {
       'productName': 'Şeftali',
@@ -69,11 +65,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Swiper(
                 itemBuilder: (BuildContext context, int index) {
                   return Image.asset(
-                    _slider[index],
+                    Contss.slider[index],
                     fit: BoxFit.cover,
                   );
                 },
-                itemCount: _slider.length,
+                itemCount: Contss.slider.length,
                 pagination: const SwiperPagination(
                   builder: DotSwiperPaginationBuilder(
                     color: Colors.grey,
