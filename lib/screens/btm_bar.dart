@@ -6,9 +6,11 @@ import 'package:manav_sepeti/screens/categories.dart';
 import 'package:manav_sepeti/screens/home_screen.dart';
 import 'package:manav_sepeti/screens/user.dart';
 import 'package:provider/provider.dart';
+import 'package:badges/badges.dart' as badges;
 
 class BottomBarScreen extends StatefulWidget {
   const BottomBarScreen({super.key});
+  static final routeName = '/bottom-bar-screen';
 
   @override
   State<BottomBarScreen> createState() => _BottomBarScreenState();
@@ -17,7 +19,7 @@ class BottomBarScreen extends StatefulWidget {
 class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Map<String, dynamic>> _pages = [
     {'page': const HomeScreen(), 'title': 'Anasayfa'},
-    {'page': CategoriesScreen(), 'title': 'Kategori'},
+    {'page': const CategoriesScreen(), 'title': 'Kategori'},
     {'page': const CartScreen(), 'title': 'Sepet'},
     {'page': const UserScreen(), 'title': 'Hesabım'}
   ];
@@ -82,9 +84,20 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
             label: 'Kategori',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              _selectedIndex == 2 ? IconlyBold.buy : IconlyLight.buy,
-              color: _selectedIndex == 2 ? selectedIconColor : iconColor,
+            icon: badges.Badge(
+              badgeAnimation: const badges.BadgeAnimation.slide(),
+              
+              showBadge: true,
+              badgeStyle: const badges.BadgeStyle(badgeColor: Colors.black),
+              badgeContent: const Text(
+                '1',
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              ),
+              position: badges.BadgePosition.topEnd(top: -12, end: -14),
+              child: Icon(
+                _selectedIndex == 2 ? IconlyBold.buy : IconlyLight.buy,
+                color: _selectedIndex == 2 ? selectedIconColor : iconColor,
+              ),
             ),
             label: 'Sepet',
           ),

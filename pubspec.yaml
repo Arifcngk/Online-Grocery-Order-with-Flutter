@@ -44,6 +44,8 @@ dependencies:
   flutter_staggered_grid_view: ^0.7.0
   video_player: ^2.8.7
   social_login_buttons: ^1.0.7
+  badges: ^3.1.2
+
 
 
 dev_dependencies:

@@ -3,6 +3,7 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:manav_sepeti/auth/forget_pass.dart';
 import 'package:manav_sepeti/auth/register.dart';
 import 'package:manav_sepeti/const/consts.dart';
+import 'package:manav_sepeti/screens/btm_bar.dart';
 import 'package:manav_sepeti/widgets/auth_button.dart';
 import 'package:social_login_buttons/social_login_buttons.dart';
 
@@ -203,7 +204,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           text: 'Ziyaretçi Olarak Devam Et',
                           backgroundColor: Colors.grey[700]!,
                           buttonType: SocialLoginButtonType.generalLogin,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushNamed(BottomBarScreen.routeName);
+                          },
                         ),
                         const SizedBox(height: 20),
                         Row(
